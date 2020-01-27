@@ -1,0 +1,92 @@
+import random
+game = True
+print("Welcome to Rock,Paper,Sissors😀")
+
+
+def restart():
+
+    answer = input("Restart? Press any key to continue or No")
+    if answer.lower() == "no":
+
+
+        print("Leaving the game")
+        global game
+
+        game = False
+    elif answer.lower() == "Yes":
+        print("Starting new game")
+def score():
+    print('The Computer has '+str(comp_score)+ ' Points')
+    print('You Have ' +str(player_score)+ ' Points')
+
+
+player_score = 0
+comp_score = 0
+
+while game is True:
+    game_options = ['Rock', 'Paper', 'Sissors']
+    print("You ready to lose?")
+    player = input("(R)ock (P)aper or (S)iccors")
+
+
+    if player.lower() == str('r'):
+
+        comp_choice = random.choice(game_options)
+        if comp_choice == str("Rock"):
+            print("Computer selected rock")
+            print("**You tie!**")
+
+            restart()
+        if comp_choice == str("Paper"):
+            print("Computer selected paper")
+            print("**You Lose!**")
+            comp_score = comp_score + 1
+            restart()
+        if comp_choice == str("Sissors"):
+            print("Computer selected sissors")
+            print("**You Win!**")
+            player_score += 1
+            restart()
+
+    if player.lower() == str('p'):
+        comp_choice = random.choice(game_options)
+        if comp_choice == str("Rock"):
+            print("Computer selected rock")
+            print("**You Win!**")
+            player_score += 1
+            restart()
+        if comp_choice == str("Paper"):
+            print("Computer selected paper")
+            print("**You Tie!**")
+            restart()
+        if comp_choice == str("Sissors"):
+            print("Computer selected sissors")
+            print("**You Lose!**")
+            comp_score += 1
+            restart()
+
+    if player.lower() == str('s'):
+        comp_choice = random.choice(game_options)
+        if comp_choice == str("Rock"):
+            print("Computer selected rock")
+            print("**You Lose!**")
+            comp_score += 1
+
+            restart()
+        if comp_choice == str("Paper"):
+            print("Computer selected paper")
+            print("**You Win!**")
+            player_score += 1
+            restart()
+        if comp_choice == str("Sissors"):
+            print("Computer selected sissors")
+            print("**You Tie!**")
+            restart()
+    if player.lower() != ('r', 'p', 's',):
+        print("!!!!!I don't understand that??!!!!!")
+    score()
+
+
+
+if game == False:
+    print("Bye")
